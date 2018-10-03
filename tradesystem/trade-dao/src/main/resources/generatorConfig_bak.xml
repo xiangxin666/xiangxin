@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+
+    <!-- 引入mysql-connector-java-5.1.30.jar位置 -->
+    <classPathEntry location="C:\Users\xiangxin\.m2\repository\mysql\mysql-connector-java\5.1.40\mysql-connector-java-5.1.40.jar" />
+
+
+    <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+    <context id="context" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <property name="suppressAllComments" value="true" />
+            <property name="suppressDate" value="true" />
+        </commentGenerator>
+
+        <!-- 数据库连接 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://47.99.32.132:3306/trade" userId="trade" password="trade" />
+
+        <!--
+             默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer
+             true，把JDBC DECIMAL 和 NUMERIC 类型解析为java.math.BigDecimal
+        -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="true" />
+        </javaTypeResolver>
+
+        <!--
+         生成model模型，对应的包路径，以及文件存放路径(targetProject)，targetProject可以指定具体的路径
+      也可以使用“MAVEN”来自动生成，这样生成的代码会在target/generatord-source目录下
+     -->
+        <javaModelGenerator targetPackage="com.ace.trade.entity" targetProject="">
+            <property name="enableSubPackages" value="false" />
+            <!-- 从数据库返回的值被清理前后的空格  -->
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <!--对应的mapper.xml文件  -->
+        <sqlMapGenerator targetPackage="sqlmap.com.ace.trade.mapper" targetProject="">
+            <property name="enableSubPackages" value="false" />
+        </sqlMapGenerator>
+
+        <!-- 对应的Mapper接口类文件 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.ace.trade.mapper" targetProject="">
+            <property name="enableSubPackages" value="false" />
+        </javaClientGenerator>
+
+        <!-- 生成那些表，tableName对应数据库表，domainObjectName对应实体类名 -->
+        <table tableName="trade_goods"  enableCountByExample="true"  enableDeleteByExample="true"
+               enableUpdateByExample="true"  enableSelectByExample="true">
+            <generatedKey column="goods_id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="trade_coupon"  enableCountByExample="true"  enableDeleteByExample="true"
+               enableUpdateByExample="true"  enableSelectByExample="true"/>
+        <table tableName="trade_user_money_log"  enableCountByExample="true"  enableDeleteByExample="true"
+               enableUpdateByExample="true"  enableSelectByExample="true"/>
+        <table tableName="trade_goods_number_log"  enableCountByExample="true"  enableDeleteByExample="true"
+               enableUpdateByExample="true"  enableSelectByExample="true"/>
+        <table tableName="trade_user"  enableCountByExample="true"  enableDeleteByExample="true"
+               enableUpdateByExample="true"  enableSelectByExample="true">
+            <generatedKey column="user_id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="trade_order"  enableCountByExample="true"  enableDeleteByExample="true"
+               enableUpdateByExample="true"  enableSelectByExample="true"/>
+        <table tableName="trade_pay"  enableCountByExample="true"  enableDeleteByExample="true"
+               enableUpdateByExample="true"  enableSelectByExample="true"/>
+
+    </context>
+</generatorConfiguration>

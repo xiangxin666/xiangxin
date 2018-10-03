@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <classPathEntry location="C:\Users\xiangxin\.m2\repository\mysql\mysql-connector-java\5.1.40\mysql-connector-java-5.1.40.jar" />
+    <context id="context">
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+        <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>
+
+        <jdbcConnection connectionURL="jdbc:mysql://47.99.32.132:3306/trade" driverClass="com.mysql.jdbc.Driver" password="trade" userId="trade" />
+        <javaModelGenerator targetPackage="com.ace.trade.entity" targetProject="G:\gitishere\ace\tradesystem\trade-dao\src\main\java\com\ace\trade\entity" />
+        <sqlMapGenerator targetPackage="sqlmap.com.ace.trade.mapper" targetProject="G:\gitishere\ace\tradesystem\trade-dao\src\main\resources\sqlmap\com\ace\trade\mapper" />
+        <javaClientGenerator targetPackage="com.ace.trade.mapper" targetProject="G:\gitishere\ace\tradesystem\trade-dao\src\main\java\com\ace\trade\mapper" type="XMLMAPPER" />
+        <!-- 下面的enableCountByExample=false是为了不生成example类 -->
+        <!-- 生成那些表，tableName对应数据库表，domainObjectName对应实体类名 -->
+        <table tableName="trade_goods"  enableCountByExample="true"  enableDeleteByExample="true"
+               enableUpdateByExample="true"  enableSelectByExample="true">
+            <generatedKey column="goods_id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="trade_coupon"  enableCountByExample="true"  enableDeleteByExample="true"
+               enableUpdateByExample="true"  enableSelectByExample="true"/>
+        <table tableName="trade_user_money_log"  enableCountByExample="true"  enableDeleteByExample="true"
+               enableUpdateByExample="true"  enableSelectByExample="true"/>
+        <table tableName="trade_goods_number_log"  enableCountByExample="true"  enableDeleteByExample="true"
+               enableUpdateByExample="true"  enableSelectByExample="true"/>
+        <table tableName="trade_user"  enableCountByExample="true"  enableDeleteByExample="true"
+               enableUpdateByExample="true"  enableSelectByExample="true">
+            <generatedKey column="user_id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="trade_order"  enableCountByExample="true"  enableDeleteByExample="true"
+               enableUpdateByExample="true"  enableSelectByExample="true"/>
+        <table tableName="trade_pay"  enableCountByExample="true"  enableDeleteByExample="true"
+               enableUpdateByExample="true"  enableSelectByExample="true"/>
+
+
+
+
+    </context>
+</generatorConfiguration>
