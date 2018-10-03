@@ -14,6 +14,6 @@ public class RestClient {
         QueryUserReq queryUserReq =new QueryUserReq();
         queryUserReq.setUserId(1);
         Result<QueryUserRes> result= restTemplate.postForObject(TradeEnums.RestServerEnum.USER.getServerUrl()+"queryUserById",queryUserReq, Result.class);
-        System.out.println("result:"+ result);
+        System.out.println("result1:"+ result);
     }
 }
