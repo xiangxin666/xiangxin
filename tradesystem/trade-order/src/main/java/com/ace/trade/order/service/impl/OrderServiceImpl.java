@@ -46,7 +46,7 @@ public class OrderServiceImpl implements IOrderService {
 
     private void checkConfirmOrder(ConfirmOrderReq confirmOrderReq,Result<QueryGoodsRes> queryGoodsRes) {
         if(confirmOrderReq==null){
-            throw new AceOrderException("下单信息不能为空");
+            throw new AceOrderException("下单信息不能为空!");
         }
 
         if(confirmOrderReq.getUserId()==null){
