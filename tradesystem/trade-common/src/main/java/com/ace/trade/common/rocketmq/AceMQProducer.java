@@ -1,5 +1,6 @@
 package com.ace.trade.common.rocketmq;
 
+import com.ace.trade.common.constants.MQEnums;
 import com.ace.trade.common.exception.AceMQException;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.rocketmq.client.exception.MQBrokerException;
@@ -80,6 +81,9 @@ public class AceMQProducer {
             LOGGER.error("send msg error :",e.getMessage(),e);
             throw new AceMQException(e);
         }
+    }
 
+    public SendResult sendMessage(MQEnums.TopicEnum topicEnum, String keys , String messageText) throws AceMQException {
+       return this.sendMessage(topicEnum.getTopic(),topicEnum.getTag(),keys,messageText);
     }
 }
