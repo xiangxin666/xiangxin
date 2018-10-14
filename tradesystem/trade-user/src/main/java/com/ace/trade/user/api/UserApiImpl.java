@@ -1,6 +1,7 @@
 package com.ace.trade.user.api;
 
 import com.ace.trade.common.api.IUserApi;
+import com.ace.trade.common.constants.TradeEnums;
 import com.ace.trade.common.protocol.Result;
 import com.ace.trade.common.protocol.user.ChangeUserMoneyReq;
 import com.ace.trade.common.protocol.user.ChangeUserMoneyRes;
@@ -28,6 +29,14 @@ public class UserApiImpl implements IUserApi {
     @RequestMapping( value ="/changeUserMoney" ,method = RequestMethod.POST)
     @ResponseBody
     public Result<ChangeUserMoneyRes> changeUserMoney(ChangeUserMoneyReq changeUserMoneyReq) {
-        return null;
+        Result<ChangeUserMoneyRes> resResult =new  Result<ChangeUserMoneyRes>();
+        try{
+            resResult  = userService.changeUserMoney(changeUserMoneyReq);
+        }catch(Exception ex){
+            resResult.setRetCode(TradeEnums.RetEnum.FAIL.getCode());
+            resResult.setRetInfo(ex.getMessage());
+        }
+
+        return resResult;
     }
 }
