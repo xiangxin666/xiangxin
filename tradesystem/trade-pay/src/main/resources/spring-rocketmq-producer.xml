@@ -3,12 +3,8 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="cancelOrderProcessor" class="com.ace.trade.coupon.mq.processor.CancelOrderProcessor" />
-    <bean id="payProducer" class="com.ace.trade.common.rocketmq.AceMQConsumer" init-method="init">
-        <property name="groupName" value="pay_orderTopic_cancel_group" />
-        <property name="topic" value="orderTopic"/>
-        <property name="tag" value="cancel"/>
+    <bean id="aceMqProducer" class="com.ace.trade.common.rocketmq.AceMQProducer" init-method="init">
+        <property name="groupName" value="payProducerGroup" />
         <property name="namesrvAddr" value="47.99.32.132:9876"/>
-        <property name="processor" ref="cancelOrderProcessor"/>
     </bean>
 </beans>
